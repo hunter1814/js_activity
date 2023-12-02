@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>act</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			min-height: 100vh;
+			width: 100%;
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-image: linear-gradient(#4cc191, #4188b1)
+		}
+		.main{
+			position: absolute;
+			width: 800px;
+			border: 1px solid black;
+			display: flex;
+			border-radius: 5px;
+		}
+		.container{
+			padding: 10px;
+			height: 430px;
+			width: 300px;
+			margin-top: 50px;
+			border-right: 2px solid black;
+		}
+		.info{
+			padding: 10px;
+			height: 430px;
+			width: 500px;
+			margin-top: 50px;
+		}
+		.inputField{
+			padding-left: 10px;
+			padding-right: 10px;
+			height: 30px;
+			width: 90%;
+			border-bottom: 2px solid black;
+			margin-top: 20px;
+		}
+		.radio{
+			border: none;
+			margin-top: 20px;
+			margin-bottom: -20px;
+		}
+		.inputField .input{
+			border: none;
+			outline: none;
+			height: 100%;
+			width: 100%;
+		}
+		
+		.submit{
+			height: 30px;
+			width: 150px;
+			margin-top: 20px;
+			margin-left: 50%;
+			transform: translate(-50%);
+			border-radius: 5px;
+			outline: none;
+			border: none;
+			background: #acdcee;
+			cursor: pointer;
+			color: black;
+			transition: 0.5s;
+		}
+		.submit:hover{
+			background: #36626a;
+			color: white;
+			transition: 0.5s;
+		}
+		h2{
+			position: inherit;
+			width: 100%;
+			height: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<h2>Activity</h2>
+		<div class="container">
+			<div class="inputField">
+				<input class="input" type="text" name="firstName" id="fname" placeholder="First Name">
+			</div><div class="inputField">
+				<input class="input" type="text" name="lastName" id="lname" placeholder="Last Name">
+			</div><div class="inputField">
+				<input class="input" type="number" name="age" id="age" placeholder="Age">
+			</div><div class="inputField radio">
+				<input type="radio" name="gender" value="Male">
+					<label>Male</label>
+				<input type="radio" name="gender" value="Female">
+					<label>Female</label>
+			</div><div class="inputField">
+				<input class="input" type="date" name="bday" id="bday" placeholder="Birthday">
+			</div><div class="inputField">
+				<input class="input" type="text" name="address" id="address" placeholder="Address">
+			</div><div class="inputField">
+				<input class="input" type="email" name="email" id="email" placeholder="Email">
+			</div>
+			<input class="submit" type="submit" name="submit" onclick="toDisplay()" value="Submit">
+		</div>
+		<div id="info" class="info"></div>
+	</div>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+	function toDisplay(){
+		const details={
+			fname:document.getElementById("fname").value,
+			lname:document.getElementById("lname").value,
+			age:document.getElementById("age").value,
+			gender:document.querySelector('input[name="gender"]:checked').value,
+			bday:document.getElementById("bday").value,
+			address:document.getElementById("address").value,
+			email:document.getElementById("email").value,
+			displ:function(){
+				let info="Fist Name:&nbsp; &nbsp;"+this.fname+"<br><br>Last Name: &nbsp; &nbsp;"+this.lname+"<br><br>Age: &nbsp; &nbsp;"+this.age+"<br><br>Gender: &nbsp; &nbsp;"+this.gender+"<br><br>Birthday: &nbsp; &nbsp;"+this.bday+"<br><br>Address: &nbsp; &nbsp;"+this.address+"<br><br>Email: &nbsp; &nbsp;"+this.email;
+				document.getElementById("info").innerHTML = info;
+			}
+		}
+		details.displ()
+	}
+</script>
